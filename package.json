@@ -1,0 +1,36 @@
+{
+  "name": "crypto-keys-generator",
+  "version": "1.0.0",
+  "description": "A generator for private keys for multiple cryptocurrencies using a 12-word mnemonic seed phrase.",
+  "type": "module",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node -e 'import(\"./src/generateKeys.js\").then(module => module.generateKeys().then(keys => console.log(keys)))'"
+  },
+  "keywords": [
+    "crypto",
+    "keys",
+    "generator",
+    "mnemonic",
+    "bip39",
+    "blockchain"
+  ],
+  "author": "Lautaro Perrotti",
+  "license": "MIT",
+  "dependencies": {
+    "@polkadot/util-crypto": "^13.0.2",
+    "@solana/web3.js": "^1.95.3",
+    "bip32": "^4.0.0",
+    "bip39": "^3.1.0",
+    "bitcoinjs-lib": "^6.1.6",
+    "ethers": "^6.13.2",
+    "tiny-secp256k1": "^2.2.3",
+    "wif": "^5.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
