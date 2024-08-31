@@ -1,18 +1,15 @@
-import { BIP32Factory } from "bip32";
-import * as tinysecp from "tiny-secp256k1";
+import { generateSeed, deriveKeypair, deriveAddress } from "ripple-keypairs";
 import { mnemonicToSeedSync } from "bip39";
-import { payments } from "bitcoinjs-lib";
-
-const bip32 = BIP32Factory(tinysecp);
 
 export function generateRippleKeys(mnemonic) {
-  const seed = mnemonicToSeedSync(mnemonic);
-  const node = bip32.fromSeed(seed);
-  const keyPair = node.derivePath("m/44'/144'/0'/0/0");
-  const privateKey = keyPair.toWIF();
-  const { address } = payments.p2pkh({ pubkey: keyPair.publicKey });
+  const seed = generateSeed({ entropy: mnemonicToSeedSync(mnemonic) });
+
+  const keypair = deriveKeypair(seed);
+
+  const address = deriveAddress(keypair.publicKey);
+
   return {
-    privateKey,
+    privateKey: keypair.privateKey,
     address,
   };
 }
