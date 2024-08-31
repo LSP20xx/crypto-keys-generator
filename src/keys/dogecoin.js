@@ -1,6 +1,7 @@
 import { BIP32Factory } from "bip32";
 import * as tinysecp from "tiny-secp256k1";
 import { mnemonicToSeedSync } from "bip39";
+import { payments } from "bitcoinjs-lib";
 
 const bip32 = BIP32Factory(tinysecp);
 
