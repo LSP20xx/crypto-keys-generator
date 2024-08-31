@@ -1,8 +1,8 @@
-import { generateSolanaPrivateKey } from '../../src/keys/solana';
-import { generateMnemonic } from 'bip39';
+import { generateSolanaKeys } from "../../src/keys/solana";
+import { mnemonic } from "../mnemonic";
 
-test('Generates valid Solana private key', () => {
-    const mnemonic = generateMnemonic(128);
-    const privateKey = generateSolanaPrivateKey(mnemonic);
-    expect(privateKey).toBeTruthy();
+test("generateSolanaKeys should return correct private key and address", () => {
+  const { privateKey, address } = generateSolanaKeys(mnemonic);
+  expect(privateKey).toMatch(/^[a-f0-9]{128}$/);
+  expect(address).toMatch(/^[1-9A-HJ-NP-Za-km-z]{32,44}$/);
 });

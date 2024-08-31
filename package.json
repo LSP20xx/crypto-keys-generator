@@ -32,6 +32,9 @@
     "wif": "^5.0.0"
   },
   "devDependencies": {
-    "jest": "^29.0.0"
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
   }
 }

@@ -1,8 +1,8 @@
-import { generateEVMPrivateKey } from '../../src/keys/evm';
-import { generateMnemonic } from 'bip39';
+import { generateEVMKeys } from "../../src/keys/evm";
+import { mnemonic } from "../mnemonic";
 
-test('Generates valid EVM private key', () => {
-    const mnemonic = generateMnemonic(128);
-    const privateKey = generateEVMPrivateKey(mnemonic);
-    expect(privateKey).toBeTruthy();
+test("generateEVMKeys should return correct private key and address", () => {
+  const { privateKey, address } = generateEVMKeys(mnemonic);
+  expect(privateKey).toMatch(/^0x/);
+  expect(address).toMatch(/^0x/);
 });

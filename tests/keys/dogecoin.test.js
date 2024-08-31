@@ -1,8 +1,8 @@
-import { generateDogecoinPrivateKey } from '../../src/keys/dogecoin';
-import { generateMnemonic } from 'bip39';
+import { generateDogecoinKeys } from "../../src/keys/dogecoin";
+import { mnemonic } from "../mnemonic";
 
-test('Generates valid Dogecoin private key', () => {
-    const mnemonic = generateMnemonic(128);
-    const privateKey = generateDogecoinPrivateKey(mnemonic);
-    expect(privateKey).toBeTruthy();
+test("generateDogecoinKeys should return correct private key and address", () => {
+  const { privateKey, address } = generateDogecoinKeys(mnemonic);
+  expect(privateKey).toMatch(/^Q/);
+  expect(address).toMatch(/^D/);
 });

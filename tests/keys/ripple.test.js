@@ -1,8 +1,8 @@
-import { generateRipplePrivateKey } from '../../src/keys/ripple';
-import { generateMnemonic } from 'bip39';
+import { generateRippleKeys } from "../../src/keys/ripple";
+import { mnemonic } from "../mnemonic";
 
-test('Generates valid Ripple private key', () => {
-    const mnemonic = generateMnemonic(128);
-    const privateKey = generateRipplePrivateKey(mnemonic);
-    expect(privateKey).toBeTruthy();
+test("generateRippleKeys should return correct private key and address", () => {
+  const { privateKey, address } = generateRippleKeys(mnemonic);
+  expect(privateKey).toMatch(/^[0-9A-Fa-f]{64}$/);
+  expect(address).toMatch(/^r/);
 });

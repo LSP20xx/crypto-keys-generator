@@ -1,8 +1,8 @@
-import { generatePolkadotPrivateKey } from '../../src/keys/polkadot';
-import { generateMnemonic } from 'bip39';
+import { generatePolkadotKeys } from "../../src/keys/polkadot";
+import { mnemonic } from "../mnemonic";
 
-test('Generates valid Polkadot private key', () => {
-    const mnemonic = generateMnemonic(128);
-    const privateKey = generatePolkadotPrivateKey(mnemonic);
-    expect(privateKey).toBeTruthy();
+test("generatePolkadotKeys should return correct private key and address", async () => {
+  const { privateKey, address } = await generatePolkadotKeys(mnemonic);
+  expect(privateKey).toMatch(/^[a-f0-9]{64}$/);
+  expect(address).toMatch(/^[1-5]/);
 });

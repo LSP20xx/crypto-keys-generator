@@ -1,8 +1,8 @@
-import { generateLitecoinPrivateKey } from '../../src/keys/litecoin';
-import { generateMnemonic } from 'bip39';
+import { generateLitecoinKeys } from "../../src/keys/litecoin";
+import { mnemonic } from "../mnemonic";
 
-test('Generates valid Litecoin private key', () => {
-    const mnemonic = generateMnemonic(128);
-    const privateKey = generateLitecoinPrivateKey(mnemonic);
-    expect(privateKey).toBeTruthy();
+test("generateLitecoinKeys should return correct private key and address", () => {
+  const { privateKey, address } = generateLitecoinKeys(mnemonic);
+  expect(privateKey).toMatch(/^T/);
+  expect(address).toMatch(/^L/);
 });
