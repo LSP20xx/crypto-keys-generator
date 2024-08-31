@@ -1,10 +1,11 @@
 # Crypto Keys Generator
 
-This project is a tool for generating private keys for multiple cryptocurrencies from a 12-word mnemonic seed phrase.
+This project is a tool for generating private keys and addresses for multiple cryptocurrencies from a 12-word mnemonic seed phrase.
 
 ## Features
 
-- Generates private keys for:
+- Generates private keys and addresses for:
+
   - Bitcoin (BTC)
   - Litecoin (LTC)
   - Dogecoin (DOGE)
@@ -13,7 +14,7 @@ This project is a tool for generating private keys for multiple cryptocurrencies
   - Polkadot (DOT)
   - Ripple (XRP)
 
-- Uses a single private key for EVM-compatible networks and others where applicable.
+- Uses a single private key and address for EVM-compatible networks and others where applicable.
 - Modular design for easy extension and maintenance.
 - Written in modern JavaScript, compatible with a wide range of JavaScript environments and frameworks.
 
@@ -25,13 +26,13 @@ npm install
 
 ## Usage
 
-To generate a new set of private keys:
+To generate a new set of private keys and addresses:
 
 ```bash
 npm start
 ```
 
-This will generate a 12-word mnemonic and derive the private keys for each supported cryptocurrency.
+This will generate a 12-word mnemonic and derive the private keys and addresses for each supported cryptocurrency.
 
 ## Running Tests
 
@@ -42,7 +43,7 @@ npm test
 ## Project Structure
 
 ```bash
-my-crypto-key-generator/
+crypto-keys-generator/
 │
 ├── src/
 │   ├── keys/
@@ -53,7 +54,7 @@ my-crypto-key-generator/
 │   │   ├── solana.js
 │   │   ├── polkadot.js
 │   │   └── ripple.js
-│   └── generateKeys.js
+│   └── generateAllKeys.js
 │
 ├── tests/
 │   ├── generateKeys.test.js
@@ -68,7 +69,10 @@ my-crypto-key-generator/
 │
 ├── .gitignore
 ├── README.md
-└── package.json
+├── README.md
+├── LICENSE
+├── package.json
+└── index.js
 ```
 
 ## License

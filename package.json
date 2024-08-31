@@ -1,7 +1,7 @@
 {
   "name": "crypto-keys-generator",
   "version": "1.0.0",
-  "description": "A generator for private keys for multiple cryptocurrencies using a 12-word mnemonic seed phrase.",
+  "description": "A generator for private keys and addresses for multiple cryptocurrencies using a 12-word mnemonic seed phrase.",
   "type": "module",
   "directories": {
     "test": "tests"
