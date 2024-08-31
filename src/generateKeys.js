@@ -1,22 +1,22 @@
-import { generateBitcoinPrivateKey } from './keys/bitcoin.js';
-import { generateLitecoinPrivateKey } from './keys/litecoin.js';
-import { generateDogecoinPrivateKey } from './keys/dogecoin.js';
-import { generateEVMPrivateKey } from './keys/evm.js';
-import { generateSolanaPrivateKey } from './keys/solana.js';
-import { generatePolkadotPrivateKey } from './keys/polkadot.js';
-import { generateRipplePrivateKey } from './keys/ripple.js';
-import { generateMnemonic } from 'bip39';
+import { generateBitcoinKeys } from "./keys/bitcoin.js";
+import { generateLitecoinKeys } from "./keys/litecoin.js";
+import { generateDogecoinKeys } from "./keys/dogecoin.js";
+import { generateEVMKeys } from "./keys/evm.js";
+import { generateSolanaKeys } from "./keys/solana.js";
+import { generatePolkadotKeys } from "./keys/polkadot.js";
+import { generateRippleKeys } from "./keys/ripple.js";
+import { generateMnemonic } from "bip39";
 
-export async function generateKeys() {
-    const mnemonic = generateMnemonic(128);
-    return {
-        mnemonic,
-        bitcoinPrivateKey: generateBitcoinPrivateKey(mnemonic),
-        litecoinPrivateKey: generateLitecoinPrivateKey(mnemonic),
-        dogecoinPrivateKey: generateDogecoinPrivateKey(mnemonic),
-        evmPrivateKey: generateEVMPrivateKey(mnemonic),
-        solanaPrivateKey: generateSolanaPrivateKey(mnemonic),
-        polkadotPrivateKey: await generatePolkadotPrivateKey(mnemonic),
-        ripplePrivateKey: generateRipplePrivateKey(mnemonic),
-    };
+export async function generateAllKeys() {
+  const mnemonic = generateMnemonic(128);
+  return {
+    mnemonic,
+    bitcoin: generateBitcoinKeys(mnemonic),
+    litecoin: generateLitecoinKeys(mnemonic),
+    dogecoin: generateDogecoinKeys(mnemonic),
+    evm: generateEVMKeys(mnemonic),
+    solana: generateSolanaKeys(mnemonic),
+    polkadot: await generatePolkadotKeys(mnemonic),
+    ripple: generateRippleKeys(mnemonic),
+  };
 }
